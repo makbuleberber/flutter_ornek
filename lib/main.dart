@@ -406,9 +406,50 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildBottomNavigationBarItem('Home', 'varliklar/home.png'),
+                    _buildBottomNavigationBarItem('Categories', 'varliklar/categories.png'),
+                    _buildBottomNavigationBarItem('Orders', 'varliklar/orders.png'),
+                    _buildBottomNavigationBarItem('Profile', 'varliklar/profile.png'),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavigationBarItem(String label, String imagePath) {
+    return InkWell(
+      onTap: () {
+        // Seçeneğe tıklandığında yapılacak işlemler
+      },
+      child: Column(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color.fromARGB(255, 222, 248, 228),
+            ),
+            child: Center(
+              child: Image.asset(
+                imagePath,
+                width: 24,
+                height: 24,
+              ),
+            ),
+          ),
+          SizedBox(height: 4), // Added space
+          Text(label),
+        ],
       ),
     );
   }
